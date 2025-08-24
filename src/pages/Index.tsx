@@ -6,6 +6,7 @@ import { GradeCalculator } from "@/components/calculators/grade-calculator";
 import { GPACalculator } from "@/components/calculators/gpa-calculator";
 import { GradePredictor } from "@/components/calculators/grade-predictor";
 import { CalculationHistory } from "@/components/calculators/calculation-history";
+import { FAQ } from "@/components/ui/faq";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("hero");
@@ -49,6 +50,8 @@ const Index = () => {
       <main className={activeSection === "hero" ? "" : "container mx-auto px-4 py-8"}>
         {renderContent()}
       </main>
+      
+      {activeSection === "hero" && <FAQ />}
       
       {activeSection === "hero" && (
         <footer className="bg-muted/30 border-t border-border py-8">

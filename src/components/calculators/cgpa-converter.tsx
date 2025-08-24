@@ -127,6 +127,25 @@ export function CGPAConverter({ onAddToHistory }: CGPAConverterProps) {
               <CardDescription>
                 Enter your CGPA to get the equivalent percentage
               </CardDescription>
+              
+              <div className="bg-gradient-secondary/10 rounded-lg p-4 mt-4">
+                <h4 className="font-semibold text-sm mb-2 flex items-center gap-2">
+                  <span className="text-primary">📐</span> Formula Used
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  {university === "vtu" && "VTU Formula: Percentage = (CGPA - 0.75) × 10"}
+                  {university === "mumbai" && "Mumbai University: Percentage = CGPA × 9.5"}
+                  {university === "anna" && "Anna University: Percentage = (CGPA - 0.4) × 10"}
+                  {university === "makaut" && "MAKAUT: Percentage = CGPA × 10"}
+                  {university === "bits" && "BITS Pilani: Percentage = CGPA × 10"}
+                  {university === "bhu" && "BHU: Percentage = (CGPA - 0.5) × 10"}
+                  {university === "du" && "Delhi University: Percentage = CGPA × 9.5"}
+                  {university === "pune" && "Pune University: Percentage = (CGPA - 0.75) × 10"}
+                  {university === "osmania" && "Osmania University: Percentage = CGPA × 10"}
+                  {university === "jntu" && "JNTU: Percentage = CGPA × 10"}
+                  {!["vtu", "mumbai", "anna", "makaut", "bits", "bhu", "du", "pune", "osmania", "jntu"].includes(university) && "Standard Formula: Percentage = CGPA × 9.5"}
+                </p>
+              </div>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

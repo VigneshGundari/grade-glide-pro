@@ -123,6 +123,18 @@ export function GradeCalculator({ onAddToHistory }: GradeCalculatorProps) {
           <CardDescription>
             Enter your subject grades and credits to calculate overall CGPA
           </CardDescription>
+          
+          <div className="bg-gradient-primary/10 rounded-lg p-4 mt-4">
+            <h4 className="font-semibold text-sm mb-2 flex items-center gap-2">
+              <span className="text-primary">📐</span> CGPA Formula
+            </h4>
+            <p className="text-sm text-muted-foreground">
+              CGPA = (Sum of Grade Points × Credits) ÷ Total Credits
+            </p>
+            <p className="text-xs text-muted-foreground mt-1">
+              Example: Grade A (8 points) × 3 credits + Grade B (6 points) × 4 credits = (24 + 24) ÷ 7 = 6.86 CGPA
+            </p>
+          </div>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="space-y-2">

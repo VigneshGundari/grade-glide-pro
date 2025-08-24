@@ -133,6 +133,18 @@ export function GPACalculator({ onAddToHistory }: GPACalculatorProps) {
               <CardDescription>
                 Calculate your overall GPA across multiple semesters
               </CardDescription>
+              
+              <div className="bg-gradient-primary/10 rounded-lg p-4 mt-4">
+                <h4 className="font-semibold text-sm mb-2 flex items-center gap-2">
+                  <span className="text-primary">📐</span> GPA Formula
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  Cumulative GPA = (Total Grade Points) ÷ (Total Credits)
+                </p>
+                <p className="text-xs text-muted-foreground mt-1">
+                  Example: Sem1 (8.5 GPA × 20 credits) + Sem2 (7.8 GPA × 22 credits) = (170 + 171.6) ÷ 42 = 8.13 CGPA
+                </p>
+              </div>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-4">
