@@ -1,6 +1,8 @@
 import { Crown, X } from "lucide-react";
 import { Button } from "./button";
 import { Card } from "./card";
+import { PaymentOptions } from "./payment-options";
+import { useState } from "react";
 
 interface PremiumUpgradeProps {
   onClose: () => void;
@@ -8,6 +10,12 @@ interface PremiumUpgradeProps {
 }
 
 export function PremiumUpgrade({ onClose, onUpgrade }: PremiumUpgradeProps) {
+  const [showPaymentOptions, setShowPaymentOptions] = useState(false);
+
+  if (showPaymentOptions) {
+    return <PaymentOptions onClose={() => setShowPaymentOptions(false)} />;
+  }
+
   return (
     <Card className="fixed top-4 right-4 w-80 bg-gradient-primary text-primary-foreground p-6 shadow-glow z-50">
       <button 
@@ -42,7 +50,7 @@ export function PremiumUpgrade({ onClose, onUpgrade }: PremiumUpgradeProps) {
       </div>
       
       <Button 
-        onClick={onUpgrade}
+        onClick={() => setShowPaymentOptions(true)}
         className="w-full bg-white text-primary hover:bg-white/90"
       >
         Upgrade Now - $4.99
