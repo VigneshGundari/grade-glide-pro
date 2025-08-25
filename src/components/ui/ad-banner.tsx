@@ -33,7 +33,7 @@ export function AdBanner({ slot, format = "auto", className = "" }: AdBannerProp
 export function TopBanner() {
   return (
     <AdBanner 
-      slot="1234567890"
+      slot="YOUR-TOP-BANNER-SLOT-ID"
       format="horizontal"
       className="w-full max-w-4xl mx-auto my-8"
     />
@@ -43,7 +43,7 @@ export function TopBanner() {
 export function SidebarAd() {
   return (
     <AdBanner 
-      slot="0987654321"
+      slot="YOUR-SIDEBAR-SLOT-ID"
       format="vertical"
       className="w-full max-w-xs"
     />
@@ -53,7 +53,7 @@ export function SidebarAd() {
 export function InContentAd() {
   return (
     <AdBanner 
-      slot="1122334455"
+      slot="YOUR-RECTANGLE-SLOT-ID"
       format="rectangle"
       className="w-full max-w-sm mx-auto my-6"
     />
