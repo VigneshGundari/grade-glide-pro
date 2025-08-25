@@ -3,9 +3,18 @@ import { Button } from "./button";
 
 interface HeroSectionProps {
   onGetStarted: () => void;
+  onViewFeatures?: () => void;
 }
 
-export function HeroSection({ onGetStarted }: HeroSectionProps) {
+export function HeroSection({ onGetStarted, onViewFeatures }: HeroSectionProps) {
+  const scrollToFeatures = () => {
+    const featuresSection = document.getElementById('features');
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: 'smooth' });
+    } else if (onViewFeatures) {
+      onViewFeatures();
+    }
+  };
   return (
     <section className="relative overflow-hidden bg-gradient-hero py-20">
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIgZmlsbC1vcGFjaXR5PSIwLjEiPjxjaXJjbGUgY3g9IjMwIiBjeT0iMzAiIHI9IjQiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30"></div>
@@ -41,6 +50,7 @@ export function HeroSection({ onGetStarted }: HeroSectionProps) {
             </Button>
             
             <Button 
+              onClick={scrollToFeatures}
               variant="outline" 
               size="lg"
               className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"

@@ -7,6 +7,8 @@ import { GPACalculator } from "@/components/calculators/gpa-calculator";
 import { GradePredictor } from "@/components/calculators/grade-predictor";
 import { CalculationHistory } from "@/components/calculators/calculation-history";
 import { FAQ } from "@/components/ui/faq";
+import { FeaturesSection } from "@/components/ui/features-section";
+import { TopBanner, InContentAd } from "@/components/ui/ad-banner";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("hero");
@@ -37,7 +39,14 @@ const Index = () => {
       case "history":
         return <CalculationHistory history={calculationHistory} onClearHistory={clearHistory} />;
       default:
-        return <HeroSection onGetStarted={handleGetStarted} />;
+        return (
+          <>
+            <HeroSection onGetStarted={handleGetStarted} />
+            <TopBanner />
+            <FeaturesSection />
+            <InContentAd />
+          </>
+        );
     }
   };
 
