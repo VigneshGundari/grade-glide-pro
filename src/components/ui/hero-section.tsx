@@ -51,9 +51,8 @@ export function HeroSection({ onGetStarted, onViewFeatures }: HeroSectionProps) 
             
             <Button 
               onClick={scrollToFeatures}
-              variant="outline" 
+              variant="hero-outline" 
               size="lg"
-              className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
             >
               View Features
             </Button>
