@@ -1,6 +1,10 @@
 import { Calculator, TrendingUp, BookOpen, History, Users, Zap } from "lucide-react";
 
-export function FeaturesSection() {
+interface FeaturesSectionProps {
+  onNavigateTo?: (section: string) => void;
+}
+
+export function FeaturesSection({ onNavigateTo }: FeaturesSectionProps) {
   const features = [
     {
       icon: Calculator,

@@ -1,4 +1,4 @@
-import { Calculator, GraduationCap, TrendingUp, History, BookOpen } from "lucide-react";
+import { Calculator, GraduationCap, TrendingUp, History, BookOpen, FileText } from "lucide-react";
 import { Button } from "./button";
 
 interface NavigationProps {
@@ -12,6 +12,7 @@ export function Navigation({ activeSection, onSectionChange }: NavigationProps) 
     { id: "grade-calculator", label: "Grade Calculator", icon: GraduationCap },
     { id: "gpa-calculator", label: "GPA Calculator", icon: TrendingUp },
     { id: "grade-predictor", label: "Grade Predictor", icon: BookOpen },
+    { id: "blog", label: "Blog", icon: FileText },
     { id: "history", label: "History", icon: History },
   ];
 

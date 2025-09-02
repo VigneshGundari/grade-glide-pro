@@ -30,7 +30,7 @@ export function CGPAConverter({ onAddToHistory }: CGPAConverterProps) {
   const universityFormulas = {
     normal: { multiplier: 9.5, offset: 0 },
     vtu: { multiplier: 10, offset: 0 },
-    mumbai: { multiplier: 8.8, offset: 12 },
+    mumbai: { multiplier: 9.5, offset: 0 }, // Fixed: Same as standard formula
     makaut: { multiplier: 9, offset: 4 },
     anna: { multiplier: 10, offset: 0 },
     bits: { multiplier: 10, offset: 0 },
