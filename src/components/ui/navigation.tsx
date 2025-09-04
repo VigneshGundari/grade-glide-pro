@@ -1,5 +1,7 @@
-import { Calculator, GraduationCap, TrendingUp, History, BookOpen, FileText } from "lucide-react";
+import { Calculator, GraduationCap, TrendingUp, History, BookOpen, FileText, Menu } from "lucide-react";
 import { Button } from "./button";
+import { Sheet, SheetContent, SheetTrigger } from "./sheet";
+import { useState } from "react";
 
 interface NavigationProps {
   activeSection: string;
@@ -7,6 +9,8 @@ interface NavigationProps {
 }
 
 export function Navigation({ activeSection, onSectionChange }: NavigationProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  
   const navItems = [
     { id: "cgpa-converter", label: "CGPA Converter", icon: Calculator },
     { id: "grade-calculator", label: "Grade Calculator", icon: GraduationCap },
@@ -15,6 +19,11 @@ export function Navigation({ activeSection, onSectionChange }: NavigationProps) 
     { id: "blog", label: "Blog", icon: FileText },
     { id: "history", label: "History", icon: History },
   ];
+
+  const handleMobileNavClick = (sectionId: string) => {
+    onSectionChange(sectionId);
+    setIsOpen(false);
+  };
 
   return (
     <nav className="bg-card border-b border-border sticky top-0 z-50 backdrop-blur-sm bg-card/80">
@@ -48,9 +57,39 @@ export function Navigation({ activeSection, onSectionChange }: NavigationProps) 
           </div>
 
           <div className="md:hidden">
-            <Button variant="ghost" size="sm">
-              <Calculator className="h-5 w-5" />
-            </Button>
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="sm">
+                  <Menu className="h-5 w-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-64">
+                <div className="flex flex-col space-y-2 mt-8">
+                  <div className="flex items-center space-x-2 mb-6">
+                    <GraduationCap className="h-6 w-6 text-primary" />
+                    <span className="text-lg font-bold text-gradient">Menu</span>
+                  </div>
+                  {navItems.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <Button
+                        key={item.id}
+                        variant={activeSection === item.id ? "default" : "ghost"}
+                        className={`flex items-center justify-start space-x-3 w-full h-12 ${
+                          activeSection === item.id 
+                            ? "bg-gradient-primary text-white shadow-md" 
+                            : "hover:bg-muted"
+                        }`}
+                        onClick={() => handleMobileNavClick(item.id)}
+                      >
+                        <Icon className="h-5 w-5" />
+                        <span>{item.label}</span>
+                      </Button>
+                    );
+                  })}
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </div>
