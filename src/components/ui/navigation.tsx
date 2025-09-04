@@ -30,9 +30,7 @@ export function Navigation({ activeSection, onSectionChange }: NavigationProps) 
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-2">
-            {/* Replace this placeholder with your logo: */}
-            {/* <img src="/path-to-your-logo.png" alt="GradeCalc Pro Logo" className="h-8 w-8" /> */}
-            <GraduationCap className="h-8 w-8 text-primary" />
+            <img src="/lovable-uploads/a59c4a61-2db6-4ab1-90d3-0016beaf93e7.png" alt="GradeCalc Pro Logo" className="h-8 w-8" />
             <span className="text-xl font-bold text-gradient">GradeCalc Pro</span>
           </div>
           
@@ -68,7 +66,7 @@ export function Navigation({ activeSection, onSectionChange }: NavigationProps) 
               <SheetContent side="right" className="w-64">
                 <div className="flex flex-col space-y-2 mt-8">
                   <div className="flex items-center space-x-2 mb-6">
-                    <GraduationCap className="h-6 w-6 text-primary" />
+                    <img src="/lovable-uploads/a59c4a61-2db6-4ab1-90d3-0016beaf93e7.png" alt="GradeCalc Pro Logo" className="h-6 w-6" />
                     <span className="text-lg font-bold text-gradient">Menu</span>
                   </div>
                   {navItems.map((item) => {
