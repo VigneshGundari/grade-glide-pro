@@ -30,6 +30,8 @@ export function Navigation({ activeSection, onSectionChange }: NavigationProps) 
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-2">
+            {/* Replace this placeholder with your logo: */}
+            {/* <img src="/path-to-your-logo.png" alt="GradeCalc Pro Logo" className="h-8 w-8" /> */}
             <GraduationCap className="h-8 w-8 text-primary" />
             <span className="text-xl font-bold text-gradient">GradeCalc Pro</span>
           </div>
