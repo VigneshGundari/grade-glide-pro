@@ -21,6 +21,26 @@ interface BlogPostProps {
 }
 
 export function BlogPost({ post, onBack }: BlogPostProps) {
+  const handleShare = async () => {
+    const shareData = {
+      title: post.title,
+      text: post.excerpt,
+      url: window.location.href,
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else {
+        // Fallback: copy URL to clipboard
+        await navigator.clipboard.writeText(window.location.href);
+        // You could add a toast notification here
+        alert('Link copied to clipboard!');
+      }
+    } catch (error) {
+      console.error('Error sharing:', error);
+    }
+  };
   const formatContent = (content: string) => {
     return content.split('\n').map((line, index) => {
       if (line.startsWith('# ')) {
@@ -65,7 +85,7 @@ export function BlogPost({ post, onBack }: BlogPostProps) {
             <Badge variant="secondary" className="bg-primary/10 text-primary">
               {post.category}
             </Badge>
-            <Button variant="ghost" size="sm">
+            <Button variant="ghost" size="sm" onClick={handleShare}>
               <Share2 className="h-4 w-4" />
             </Button>
           </div>
