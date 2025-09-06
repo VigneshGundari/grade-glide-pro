@@ -514,7 +514,11 @@ export function BlogSection({ onNavigateTo, onSelectPost }: BlogSectionProps) {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {blogPosts.map((post) => (
-            <Card key={post.id} className="card-hover group">
+            <Card 
+              key={post.id} 
+              className="card-hover group cursor-pointer"
+              onClick={() => setSelectedPost(post)}
+            >
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
                   <Badge variant="secondary" className="bg-primary/10 text-primary">
@@ -542,7 +546,10 @@ export function BlogSection({ onNavigateTo, onSelectPost }: BlogSectionProps) {
                     variant="ghost" 
                     size="sm" 
                     className="group-hover:text-primary"
-                    onClick={() => setSelectedPost(post)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedPost(post);
+                    }}
                   >
                     Read More
                     <ArrowRight className="h-3 w-3 ml-1" />
