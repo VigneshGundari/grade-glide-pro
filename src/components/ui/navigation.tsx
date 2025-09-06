@@ -2,6 +2,7 @@ import { Calculator, GraduationCap, TrendingUp, History, BookOpen, FileText, Men
 import { Button } from "./button";
 import { Sheet, SheetContent, SheetTrigger } from "./sheet";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 interface NavigationProps {
   activeSection: string;
@@ -16,9 +17,12 @@ export function Navigation({ activeSection, onSectionChange }: NavigationProps) 
     { id: "grade-calculator", label: "Grade Calculator", icon: GraduationCap },
     { id: "gpa-calculator", label: "GPA Calculator", icon: TrendingUp },
     { id: "grade-predictor", label: "Grade Predictor", icon: BookOpen },
-    { id: "blog", label: "Blog", icon: FileText },
     { id: "history", label: "History", icon: History },
   ];
+
+  const handleBlogClick = () => {
+    // This will be handled by React Router Link
+  };
 
   const handleMobileNavClick = (sectionId: string) => {
     onSectionChange(sectionId);
@@ -56,6 +60,16 @@ export function Navigation({ activeSection, onSectionChange }: NavigationProps) 
                 </Button>
               );
             })}
+            <Link to="/blog">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="flex items-center space-x-2 hover:bg-muted"
+              >
+                <FileText className="h-4 w-4" />
+                <span>Blog</span>
+              </Button>
+            </Link>
           </div>
 
           <div className="md:hidden">
@@ -89,6 +103,15 @@ export function Navigation({ activeSection, onSectionChange }: NavigationProps) 
                       </Button>
                     );
                   })}
+                  <Link to="/blog" onClick={() => setIsOpen(false)}>
+                    <Button
+                      variant="ghost"
+                      className="flex items-center justify-start space-x-3 w-full h-12 hover:bg-muted"
+                    >
+                      <FileText className="h-5 w-5" />
+                      <span>Blog</span>
+                    </Button>
+                  </Link>
                 </div>
               </SheetContent>
             </Sheet>
